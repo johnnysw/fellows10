@@ -52,14 +52,22 @@
 <script>
     var oMenu = document.getElementById("menu");
     var aLi = oMenu.getElementsByTagName("li");
+
+    var aSubMenu = oMenu.getElementsByTagName('ul');
+    for(var i=0; i<aSubMenu.length; i++){
+        aSubMenu[i].onclick = function(e){
+            e.stopPropagation();
+        };
+    }
     for(var i=0; i<aLi.length; i++){
         if(aLi[i].className == "main-menu"){
             aLi[i].bFlag = false;
             aLi[i].onclick = function(){
+                var oSubMenu = this.getElementsByTagName("ul")[0];
                 if(this.bFlag){
-                    this.getElementsByTagName("ul")[0].style.display = "none";
+                    oSubMenu.style.display = "none";
                 }else {
-                    this.getElementsByTagName("ul")[0].style.display = "block";
+                    oSubMenu.style.display = "block";
                 }
                 this.bFlag = !this.bFlag;
             };

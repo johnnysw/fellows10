@@ -4,46 +4,40 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        div{
-            float: left;
-        }
         #main{
-            margin-left: 200px;
-            margin-top: 200px;
             width: 800px;
             height: 400px;
             background: #ccc;
-            position: relative;
+            margin-left: 50px;
+            margin-top: 50px;
+            /*position: relative;
+            left: 50px;
+            top: 50px;*/
+        }
+        #main div{
+            width: 200px;
+            height: 100px;
+            display: inline-block;
         }
         #div1{
-              width: 200px;
-              height: 200px;
-              background: red;
+            background: red;
         }
         #div2{
-            width: 200px;
-            height: 200px;
             background: blue;
-            /*position: relative;/!*相对定位，1，相对于初始位置，2，空间不释放*!/*/
-            /*left:300px;*/
-            /*top:300px;*/
             position: absolute;
-            /*绝对定位，1，空间释放 2，如果祖先元素没有定位的，相对于body定位，如果祖先元素有定位，相对于最近的祖先元素定位*/
-            top:50px;
-            left:50px;
+            left: 50px;
+            top: 50px;
         }
         #div3{
-            width: 200px;
-            height: 200px;
             background: green;
         }
     </style>
 </head>
 <body>
     <div id="main">
-        <div id="div1"></div>
-        <div id="div2"></div>
-        <div id="div3"></div>
+        <div id="div1">a</div>
+        <div id="div2">b</div>
+        <div id="div3">c</div>
     </div>
 </body>
 </html>
