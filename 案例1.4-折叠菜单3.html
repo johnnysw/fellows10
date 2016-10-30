@@ -51,21 +51,44 @@
 </ul>
 <script>
     var oMenu = document.getElementById("menu");
-    var aLi = oMenu.getElementsByTagName("li");
-    for(var i=0; i<aLi.length; i++){
-        if(aLi[i].className == "main-menu"){
-            aLi[i].bFlag = false;
-            aLi[i].onclick = function(){
-                if(this.bFlag){
-                    this.getElementsByTagName("ul")[0].style.display = "none";
-                }else {
-                    this.getElementsByTagName("ul")[0].style.display = "block";
+    var aH3 = oMenu.getElementsByTagName("h3");
+
+    //var bShow = false;//一个标识位，用来标识sub-menu是否显示，
+                // true代表显示，false代表隐藏
+
+    for(var i=0; i<aH3.length; i++){
+        aH3[i].bShow = false;
+        aH3[i].onclick = function(){
+//            console.log( this.nextSibling );
+            //console.log( this.nextElementSibling );
+            var oSubMenu = next(this);
+
+            if(oSubMenu){
+                /*if(oSubMenu.style.display == 'block'){
+                    oSubMenu.style.display = 'none';
+                }else{
+                    oSubMenu.style.display = 'block';
+                }*/
+                if(this.bShow){
+                    oSubMenu.style.display = 'none';
+                }else{
+                    oSubMenu.style.display = 'block';
                 }
-                this.bFlag = !this.bFlag;
-            };
-        }
+                this.bShow = !this.bShow;
+
+
+            }
+
+        };
     }
-</script>
+
+    function next(elem){
+        do{
+            elem = elem.nextSibling;
+        }while(elem && elem.nodeType != 1);
+        return elem;
+    }
+</script>t
 </body>
 </html>
 
