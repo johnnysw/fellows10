@@ -51,39 +51,39 @@
 </head>
 <body>
 
-    <div id="container">
-        <ul id="menu">
-            <li class="selected">js</li>
-            <li>html</li>
-            <li>css</li>
-        </ul>
-        <div id="content">
+<div id="container">
+    <ul id="menu">
+        <li class="selected">js</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+    <div id="content">
 
-        </div>
     </div>
+</div>
 
-    <script>
-        var data = [11111111,22222222,33333333];
+<script>
+    var data = [11111111,22222222,33333333];
 
-        var oMenu = document.getElementById('menu');
-        var aLi = oMenu.children; //oMenu.getElementsByTagName('li');
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.children; //oMenu.getElementsByTagName('li');
 
-        var oContent = document.getElementById('content');
-        oContent.innerHTML = data[0];
+    var oContent = document.getElementById('content');
+    oContent.innerHTML = data[0];
 
-        for(var i=0; i<aLi.length; i++){
-            aLi[i].index = i;
-            aLi[i].onclick = function(){
-                for(var j=0; j<aLi.length; j++){
-                    aLi[j].className = '';
-                }
-                this.className = 'selected';
-                oContent.innerHTML = data[this.index];
-            };
-        }
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function(){
+            for(var j=0; j<aLi.length; j++){
+                aLi[j].className = '';
+            }
+            this.className = 'selected';
+            oContent.innerHTML = data[this.index];
+        };
+    }
 
 
-    </script>
+</script>
 
 </body>
 </html>

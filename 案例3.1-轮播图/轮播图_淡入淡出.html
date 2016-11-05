@@ -29,6 +29,7 @@
             position: absolute;
             right: 20px;
             bottom: 10px;
+            z-index: 9999;
         }
         #tab li{
             width: 20px;
@@ -44,16 +45,20 @@
         #tab .selected{
             background: orange;
         }
+        #content{
+            position: relative;
+        }
         #content img{
-            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
-        #content .selected{
-            display: block;
-        }
+
         #arrow{
             position: absolute;
             left: 20px;
             bottom: 10px;
+            z-index: 9999;
         }
         #arrow span{
             width: 20px;
@@ -78,7 +83,7 @@
         <li>4</li>
     </ul>
     <div id="content">
-        <img class="selected" src="img/1.jpg" alt=""/>
+        <img src="img/1.jpg" alt=""/>
         <img src="img/2.jpg" alt=""/>
         <img src="img/3.jpg" alt=""/>
         <img src="img/4.jpg" alt=""/>
@@ -88,6 +93,7 @@
         <span id="next">&gt;</span>
     </div>
 </div>
+<script src="jslib.js"></script>
 <script>
     var oContainer = document.getElementById('container');
     var oTab = document.getElementById('tab');
@@ -97,53 +103,24 @@
     var oPrev = document.getElementById('prev');
     var oNext = document.getElementById('next');
 
-    var iNow = 0;//代表当前正在显示的图片的索引
+    var zIndex = 4;
 
     for(var i=0; i<aLi.length; i++){
+        aImg[i].style.zIndex = aImg.length - i;
         aLi[i].index = i;
         aLi[i].onmouseover = function(){
-            changeImg(this.index);
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className = '';
+            }
+            this.className = 'selected';
+
+            var oImg = aImg[this.index];
+            oImg.style.opacity = 0;
+            oImg.style.filter = "alpha(opacity=0)";
+            oImg.style.zIndex = ++zIndex;
+
+            animate(oImg, {opacity: 100});
         };
-    };
-
-    oPrev.onclick = function(){
-        iNow--;
-        if(iNow == -1){
-            iNow = aLi.length - 1;
-        }
-        changeImg(iNow);
-    };
-    oNext.onclick = function(){
-        iNow++;
-        if(iNow == aLi.length){
-            iNow = 0;
-        }
-        changeImg(iNow);
-    };
-
-    function changeImg(idx){
-        for(var i=0; i<aLi.length; i++){
-            aLi[i].className = '';
-            aImg[i].className = '';
-        }
-        //elem.className = 'selected';
-        aLi[idx].className = 'selected';
-        aImg[idx].className = 'selected';
-    }
-
-    var timer;
-    function run(){
-        timer = setInterval(function(){
-            oNext.onclick();
-        }, 2000);
-    }
-    run();
-
-    oContainer.onmouseover = function(){
-        clearInterval(timer);
-    };
-    oContainer.onmouseout = function(){
-        run();
     };
 
 
