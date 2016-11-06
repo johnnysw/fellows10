@@ -89,8 +89,8 @@
         <img src="img/4.jpg" alt=""/>
     </div>
     <div id="arrow">
-        <span id="prev">&lt;</span>
-        <span id="next">&gt;</span>
+        <span id="prev" onselectstart="return false;">&lt;</span>
+        <span id="next" onselectstart="return false;">&gt;</span>
     </div>
 </div>
 <script src="jslib.js"></script>
@@ -104,23 +104,57 @@
     var oNext = document.getElementById('next');
 
     var zIndex = 4;
+    var iNow = 0;
 
     for(var i=0; i<aLi.length; i++){
         aImg[i].style.zIndex = aImg.length - i;
         aLi[i].index = i;
         aLi[i].onmouseover = function(){
-            for(var i=0; i<aLi.length; i++){
-                aLi[i].className = '';
-            }
-            this.className = 'selected';
-
-            var oImg = aImg[this.index];
-            oImg.style.opacity = 0;
-            oImg.style.filter = "alpha(opacity=0)";
-            oImg.style.zIndex = ++zIndex;
-
-            animate(oImg, {opacity: 100});
+            changeImg(this.index);
         };
+    };
+    oPrev.onclick = oNext.onclick = function(){
+        if(this == oPrev){
+            iNow--;
+            if(iNow == -1){
+                iNow = aLi.length - 1;
+            }
+            changeImg(iNow);
+        }else{
+            iNow++;
+            if(iNow == aLi.length){
+                iNow = 0;
+            }
+            changeImg(iNow);
+        }
+    };
+
+    function changeImg(index){
+        iNow = index;
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].className = '';
+        }
+        aLi[iNow].className = 'selected';
+
+        var oImg = aImg[iNow];
+        oImg.style.opacity = 0;
+        oImg.style.filter = "alpha(opacity=0)";
+        oImg.style.zIndex = ++zIndex;
+
+        animate(oImg, {opacity: 100});
+    }
+
+    var timer = setInterval(function(){
+        oNext.onclick();
+    }, 500);
+
+    oContainer.onmouseover = function(){
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function(){
+        timer = setInterval(function(){
+            oNext.onclick();
+        }, 500);
     };
 
 
