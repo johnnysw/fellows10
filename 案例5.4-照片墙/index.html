@@ -93,15 +93,17 @@
                     aImg[i].className = '';
                     var collideResult = collideTest(elem, aImg[i]);
                     if(collideResult){
-                        //aImg[i].className = 'collide';
                         aCollide.push(aImg[i]);
                     }
                 }
+                console.log(aCollide);
                 oNearest = getNearest(elem);
                 if(oNearest){
                     //4.交换元素
                     oNearest.className = 'collide';
                 }
+                aCollide = [];
+
                 return false;//阻止默认行为
             };
 
@@ -114,11 +116,11 @@
                     var tempPos = elem.pos;
                     elem.pos = oNearest.pos;
                     oNearest.pos = tempPos;
+                    oNearest.className = '';
                 }else{
                     animate(elem, elem.pos);
                 }
                 aCollide = [];
-                oNearest.className = '';
             };
         };
     }
