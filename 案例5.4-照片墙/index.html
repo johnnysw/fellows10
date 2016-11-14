@@ -96,12 +96,14 @@
                         aCollide.push(aImg[i]);
                     }
                 }
-                oNearest = getNearest(elem);
-                if(oNearest){
+                if(aCollide.length > 0){//如果aCollide中有元素再去查找aCollide中最近的元素
+                    oNearest = getNearest(elem);
                     //4.交换元素
                     oNearest.className = 'collide';
+                    aCollide = [];
+                }else{
+                    oNearest = null;
                 }
-                aCollide = [];
 
                 return false;//阻止默认行为
             };
