@@ -27,8 +27,8 @@
             if(n == 1 || n == 2){
                 return 1;
             }
-            var n1 = 1, n2 = 2, sum;
-            for(var i=3; i<n; i++){
+            var n1 = 1, n2 = 1, sum;
+            for(var i=3; i<=n; i++){
                 sum = n1 + n2;
                 n1 = n2;
                 n2 = sum;
@@ -45,7 +45,7 @@
 
 
         document.write(fibonacci(7));
-        document.write(fibonacci1(7));
+        document.write(fibonacci1(3));
         document.write(fibonacci2(7));
     </script>
 </body>
