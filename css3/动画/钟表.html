@@ -34,27 +34,25 @@
             width: 4px;
             height: 40px;
             background: #000000;
-            position: absolute;
             left: 98px;
             top: 60px;
-            transform-origin: bottom;
         }
         #minute{
             width: 4px;
             height: 60px;
             background: #0000ff;
-            position: absolute;
             left: 98px;
             top: 40px;
-            transform-origin: bottom;
         }
         #second{
             width: 2px;
             height: 80px;
             background: #ff0000;
-            position: absolute;
             left: 99px;
             top: 20px;
+        }
+        .indicator{
+            position: absolute;
             transform-origin: bottom;
         }
     </style>
@@ -62,9 +60,9 @@
 <body>
     <div id="clock">
         <ul id="dial"></ul>
-        <div id="hour"></div>
-        <div id="minute"></div>
-        <div id="second"></div>
+        <div id="hour" class="indicator"></div>
+        <div id="minute" class="indicator"></div>
+        <div id="second" class="indicator"></div>
     </div>
 
     <script>
@@ -79,16 +77,18 @@
         oDial.innerHTML = html;
 
 
-
-        setInterval(function(){
-            var now = new Date(),
-                    second = now.getSeconds(),
-                    minute = now.getMinutes() + second / 60,
-                    hour = now.getHours() + minute / 60;
+        var now, second, minute, hour;
+        function run(){
+            now = new Date();
+            second = now.getSeconds();
+            minute = now.getMinutes() + second / 60;
+            hour = now.getHours() + minute / 60;
             oHour.style.transform = "rotate("+ hour * 30 +"deg)";
             oMinute.style.transform = "rotate("+ minute * 6 +"deg)";
             oSecond.style.transform = "rotate("+ second * 6 +"deg)";
-        }, 1000);
+        }
+        run();
+        setInterval(run, 1000);
 
     </script>
 
