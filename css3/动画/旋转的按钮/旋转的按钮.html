@@ -73,19 +73,14 @@
                 }else{
                     this.style.transform = this.currentTransform.replace(/scale\(2\)/g, "");
                 }
-
                 this.addEventListener("webkitTransitionEnd", fn);
                 function fn(){
                     if(this.currentTransform.indexOf("scale(2)") != -1){
                         this.currentTransform.replace(/scale\(2\)/g, "");
-                        console.log(this.currentTransform);
                     }
                     this.style.transform = this.currentTransform;
-
                     this.removeEventListener("webkitTransitionEnd", fn);
                 }
-
-
             };
         }
     </script>
