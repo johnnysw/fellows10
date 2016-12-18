@@ -18,7 +18,7 @@
         img{
             position: absolute;
             cursor: pointer;
-            transition: all .5s ease;
+            transition: all 1s ease;
         }
         #home{
             transition: transform 1s ease;
@@ -52,6 +52,8 @@
                 for(var i=0; i<aImg.length; i++){
                     aImg[i].style.transform = "translate(0, 0) rotate(0)";
                     aImg[i].style.transitionDelay = i * 50 + "ms";
+
+                    aImg[i].currentTransform = aImg[i].style.transform;
                 }
             }else{//要打开
                 this.style.transform = "rotate(-360deg)";
@@ -60,14 +62,38 @@
                     var y = -150 * Math.sin(22.5 * i *  Math.PI / 180);
                     aImg[i].style.transform = "translate("+ x +"px, " + y +"px) rotate(-360deg)";
                     aImg[i].style.transitionDelay = (aImg.length - i) * 50 + "ms";
+
+                    aImg[i].currentTransform = aImg[i].style.transform;
+
                 }
             }
             bFlag = !bFlag;
         };
         for(var i=0; i<aImg.length; i++){
-            aImg[i].currentTransform = "";
+            aImg[i].state = false;//自定义属性state，表示当前动画是否执行完成，false表示未完成，true表示已完成
             aImg[i].onclick = function(){
-                this.currentTransform = this.style.transform;
+                if(!this.state){//表示已完成
+                    this.style.transform = this.currentTransform + " scale(2)";//大小变为2倍
+                    this.addEventListener("webkitTransitionEnd", fn);//监听变为2倍的状态何时执行完
+                }
+
+                function fn() {
+                    this.style.transform = this.currentTransform;//恢复到原大小
+                    this.state = !this.state;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+               /* this.currentTransform = this.style.transform;
                 if(this.currentTransform.indexOf("scale(2)") == -1){
                     this.style.transform = this.currentTransform + " scale(2)";
                 }else{
@@ -80,7 +106,7 @@
                     }
                     this.style.transform = this.currentTransform;
                     this.removeEventListener("webkitTransitionEnd", fn);
-                }
+                }*/
             };
         }
     </script>
