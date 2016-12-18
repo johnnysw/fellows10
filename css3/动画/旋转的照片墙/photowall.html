@@ -184,7 +184,6 @@
                     flag = !flag;
                 };
 
-
                 //左右按钮注册单击事件
                 oPrev.onclick = oNext.onclick = function(){
                     if(this == oNext){
@@ -206,8 +205,6 @@
                     arr.sort(function(){
                         return Math.random() - 0.5;
                     });
-                    console.log(arr);
-
                     var timer2 = setInterval(function(){
                         var item = arr.pop();
                         var oSpan = aDiv[item].getElementsByTagName("span")[0];
