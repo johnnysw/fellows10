@@ -54,7 +54,7 @@
     var aLi = oMenu.getElementsByTagName("li");
 
     var aSubMenu = oMenu.getElementsByTagName('ul');
-    for(var i=0; i<aSubMenu.length; i++){
+    for(var i=0; i<aSubMenu.length; i++){                 ///处理事件冒泡
         aSubMenu[i].onclick = function(e){
             e.stopPropagation();
         };

@@ -77,9 +77,9 @@
             this.className = 'selected';
             oContent.innerHTML = arr[this.index];
         };
-        aLi[i].onselectstart = function(){
+        aLi[i].onselectstart = function(){                      ///不可选中
             return false;
-        }
+         }
 
     }
 

@@ -75,14 +75,17 @@
     <script>
         var oMenu = document.getElementById('menu');
         var aLi = oMenu.children;
+        //console.log(aLi);
         for(var i=0; i<aLi.length; i++){
             aLi[i].onmouseover = function(){
-                //this.children[1].style.display = 'block';
-                this.getElementsByTagName('ul')[0].style.display = 'block';
+                //console.log(this.children[1]);
+                this.children[1].style.display = 'block';
+                //this.getElementsByTagName('ul')[0].style.display = 'block';
             };
 
             aLi[i].onmouseout = function(){
                 this.children[1].style.display = 'none';
+                //this.children[1].style.display = 'none';
             };
         }
 

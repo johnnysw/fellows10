@@ -23,7 +23,7 @@
             height: 344px;
             margin: 100px auto;
             overflow: hidden;
-            position: relative;
+            position: relative;             /*///父元素设srelative 则子元素absolute是相对于父元素的绝对位置*/
         }
         #tab{
             position: absolute;
@@ -133,14 +133,14 @@
 
     var timer;
     function run(){
-        timer = setInterval(function(){
+        timer = setInterval(function(){                 ///定时
             oNext.onclick();
         }, 2000);
     }
     run();
 
     oContainer.onmouseover = function(){
-        clearInterval(timer);
+        clearInterval(timer);                       ///消除定时
     };
     oContainer.onmouseout = function(){
         run();
