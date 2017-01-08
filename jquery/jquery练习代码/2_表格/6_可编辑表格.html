@@ -62,16 +62,17 @@
             //console.log($(this).has('input').size());
            //console.log( $(this).find('input'));
             //如果没有input 才执行下边操作
-            /*if($(this).has('input').size() == 0){
-                var $input = '<input type="text" value="'+$(this).html()+'"/>';
-                $(this).html($input).find('input').trigger('focus');
-            }*/
             if($(this).has('input').size() == 0){
+                var $input = '<input type="text" />';
+                var value =       $(this).html();
+                $(this).html($input).find('input').val(value).trigger('focus');
+            }
+            /*if($(this).has('input').size() == 0){
                 var $input = $('<input type="text"/>');
                 $input.css('border','none').val($(this).html());
                 $(this).empty().append($input);
                 $input.trigger('focus');
-            }
+            }*/
 
         });
     </script>

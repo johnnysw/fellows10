@@ -56,8 +56,10 @@
         $('tbody tr:even').addClass('even');
         $('tbody tr:odd').addClass('odd');
         $('tbody tr').on('click',function(){
-            $(this).toggleClass('selected').find(':checkbox')
-                    .prop('checked',!$(this).find(':checkbox').prop('checked'));
+            $(this).toggleClass('selected');
+            if(!$(e.target).is(':checkbox')){
+                $(this).find(':checkbox').prop('checked',!$(this).find(':checkbox').prop('checked'));
+            }
         });
     </script>
 
