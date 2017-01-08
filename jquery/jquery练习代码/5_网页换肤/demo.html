@@ -90,20 +90,21 @@
             index = getCookie('skin');
         };
 
-
-        //$('li').eq(index).css('background-position',-index*20+"px -15px");
-
-
        /* var oImg = new Image();
         oImg.onload = function(){*/
 
-            $('li').on('click',function() {
-                init();
-                $(this).css('background-position', -$(this).index() * 20 + "px -15px");
-                $('.news').attr('class','news').addClass('skin'+$(this).index());
-                setCookie('skin',$(this).index(),7);
-            });
-            $('li').eq(index).trigger('click');
+        $('li').on('click',function() {
+            //把所有li回复默认样式
+            init();
+            //将点击的li样式设置成勾选状态
+            $(this).css('background-position', -$(this).index() * 20 + "px -15px");
+            //将所有news的class  恢复至news  再添加一个对应勾选的样式
+            $('.news').attr('class','news').addClass('skin'+$(this).index());
+            //将对应皮肤设置到cookie  值为 0 1 2 3 4 5
+            setCookie('skin',$(this).index(),7);
+        });
+        //初始化的时候 触发li的点击事件
+        $('li').eq(index).trigger('click');
 
 
        /* }
