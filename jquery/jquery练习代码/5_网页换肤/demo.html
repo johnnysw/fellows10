@@ -77,12 +77,15 @@
 
     <script>
         function init(){
+            //初始化所有按钮背景
             $('li').each(function(index,elem){
                 $(this).css('background-position',-index*20+"px 0px");
             })
         }
         init();
+        //设置皮肤的默认值是0；
         var index = 0;
+        //如果cookie中有值 替换默认值
         if(getCookie('skin')){
             index = getCookie('skin');
         };
@@ -91,8 +94,8 @@
         //$('li').eq(index).css('background-position',-index*20+"px -15px");
 
 
-        var oImg = new Image();
-        oImg.onload = function(){
+       /* var oImg = new Image();
+        oImg.onload = function(){*/
 
             $('li').on('click',function() {
                 init();
@@ -103,8 +106,8 @@
             $('li').eq(index).trigger('click');
 
 
-        }
-        oImg.src='theme.gif';
+       /* }
+        oImg.src='theme.gif';*/
 
 
         function setCookie(key,value,day){
