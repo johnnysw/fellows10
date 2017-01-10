@@ -46,6 +46,7 @@
                 oDiv.style.left = iLeft + 'px';
                 oDiv.style.top = iTop + 'px';
                 //e.preventDefault();
+                e.returnValue = false;
                 //e.returnValue = false;
                 return false;//阻止默认行为
             };
@@ -54,6 +55,7 @@
                 document.onmousemove = null;
                 document.onmouseup = null;
             };
+//            return false;
         };
     </script>
 </body>
