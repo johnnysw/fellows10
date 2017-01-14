@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    function trigger(param){
+        param.name = 'wangwu';
+    }
+
+    function  aa() {
+        var opts = {
+            name: 'lisi'
+        };
+
+        trigger(opts);
+
+        console.log(opts);
+    }
+    aa();
+
+
+
+
+</script>
+</body>
+</html>
