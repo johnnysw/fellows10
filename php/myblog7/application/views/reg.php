@@ -180,7 +180,11 @@
             citySelector: '#city'
         });
 
-        $('#username').on('blur', function(){
+        var opts = {
+            bSubmit: true
+        };//标识可以提交
+
+        $('#username').on('blur', function(e, param){
             //四个参数：url, data, callback, dataType
             $.get('welcome/check_name', {
                 uname: this.value
@@ -189,14 +193,15 @@
                     $('#name_msg').html('勾');
                 }else{
                     $('#name_msg').html('叉');
+                    param && (param.bSubmit = false);
                 }
             }, 'text');
 
         });
-        $('#email').on('blur', function(e, opts){
+        $('#email').on('blur', function(e, param){
             if(this.value.indexOf('@') == -1){
                 $('#email_tip').html('请输入有效的email!');
-                opts && (opts.bSubmit = false);
+                param && (param.bSubmit = false);
             }else{
                 $('#email_tip').html('');
             }
@@ -216,11 +221,9 @@
             }
         });
         $('#frm_reg').on('submit', function(){
-            var opts = {
-                bSubmit: true
-            };//标识可以提交
 
             $('#email').trigger('blur', opts);
+            $('#username').trigger('blur', opts);
 
             if($('[name=gender]:checked').length == 0){
                 $('#gender_msg').html('请选择性别!');
