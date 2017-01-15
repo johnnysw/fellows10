@@ -40,7 +40,6 @@ class Welcome extends CI_Controller {
 
 		if($result){//查到结果
 			$this -> session -> set_userdata('loginedUser', $result);
-
 			redirect('welcome/index');
 		}else{//未查到结果
 			echo 'fail';

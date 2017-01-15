@@ -85,7 +85,6 @@
             <ul>
                 <?php
                     foreach($articles as $article){
-
                 ?>
                 <li class="Blog">
                     <h2><a href="viewPost_comment.htm"><?php echo $article -> title;?></a></h2>
