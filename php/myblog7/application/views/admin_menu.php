@@ -15,7 +15,7 @@
                 <li><a href="admin/new_blog">发表博客</a></li>
                 <li><a href="blogCatalogs.htm">博客设置/分类管理</a></li>
                 <li><a href="admin/list_blogs">文章管理</a></li>
-                <li><a href="blogComments.htm">博客评论管理</a></li>
+                <li><a href="admin/get_comment_to_me">博客评论管理</a></li>
             </ol>
         </li>
     </ul>

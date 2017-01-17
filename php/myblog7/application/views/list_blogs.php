@@ -54,7 +54,7 @@ $loginedUser = $this->session->userdata('loginedUser');
                         ?>
                         <li class="row_1">
                             <input name="article_id" value="<?php echo $article->article_id;?>" type="checkbox">
-                            <a href="viewPost_comment.htm" target="_blank"><?php echo $article->title;?></a>
+                            <a href="admin/get_blog_by_id?id=<?php echo $article->article_id;?>" target="_blank"><?php echo $article->title;?></a>
                             <small><?php echo $article->post_date;?></small>
                         </li>
                         <?php
