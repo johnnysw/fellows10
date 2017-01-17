@@ -5,6 +5,7 @@ class Admin extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('article_model');
+        $this->load->model('comment_model');
     }
 
     public function index(){
@@ -49,5 +50,68 @@ class Admin extends CI_Controller{
         }else{
             echo 'fail';
         }
+    }
+    public function get_blog_by_id(){
+
+        //接数据
+        $id = $this->input->get('id');//文章ID
+        $user_id = $this->session->userdata("loginedUser")->user_id;//用户ID
+        //调用model 查数据库
+        $results = $this->article_model->get_ariticles_by_user($user_id);
+        $comment_results = $this->comment_model->get_comment_by_articleid($id);
+        $prevArticle = null;
+        $nextArticle = null;
+        foreach ($results as $index=>$result){
+            if($id == $result->article_id){
+                $row = $result;
+                if($index>0){
+                    $prevArticle = $results[$index-1];
+                }
+
+                if($index<count($results)-1){
+                    $nextArticle = $results[$index+1];
+                }
+
+                break;
+            }
+        }
+        //到页面
+            if($results){
+                $this->load->view('viewPost',array(
+                    'row' => $row,
+                    'prevArticle' => $prevArticle,
+                    'nextArticle' => $nextArticle,
+                    'comment_results' => $comment_results
+                ));
+            }else{
+                echo 'fail';
+            }
+    }
+
+    public function save_comment(){
+
+        $id = $this->input->post('id');
+        $content = $this->input->post('content');
+        $user_id = $this->session->userdata('loginedUser')->user_id;
+        $rows = $this->comment_model->save($id,$content,$user_id);
+        if($rows > 0){
+            redirect("admin/get_blog_by_id?id=$id");
+        }else{
+            echo 'fail';
+        }
+
+
+    }
+
+    public function get_comment_to_me(){
+
+        $user_id = $this->session->userdata('loginedUser') -> user_id;
+        $results = $this->comment_model->get_comment($user_id);
+        if($results){
+            $this->load->view("blogComments",array(
+                'results'=>$results
+            ));
+        }
+
     }
 }

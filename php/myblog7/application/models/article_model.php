@@ -36,4 +36,10 @@ class Article_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+//    public function get_blog_by_id($id){
+//        $sql = "select * from t_article where article_id = $id";
+//        return $this->db->query($sql)->row();
+//    }
+
+
 }
