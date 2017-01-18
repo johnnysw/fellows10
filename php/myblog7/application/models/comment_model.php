@@ -23,4 +23,17 @@ class Comment_model extends CI_Model
         return $this->db->query($sql)->result();
     }
 
+    public function delete_comment($comment_id){
+        $this->db->delete('t_comment',array(
+            'comm_id' => $comment_id
+        ));
+        return $this->db->affected_rows();
+    }
+
+    public function delete_comment_by_commUser($commUser,$user_id){
+        $sql = "delete from t_comment where user_id = $commUser and article_id in (select t_article.article_id from t_article where t_article.user_id = $user_id)";
+        $this->db->query($sql);
+        return $this->db->affected_rows();
+    }
+
 }

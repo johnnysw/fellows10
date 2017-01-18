@@ -41,5 +41,9 @@ class Article_model extends CI_Model
 //        return $this->db->query($sql)->row();
 //    }
 
-
+//    public function get_blog_type($user_id){
+//
+//        $sql = "select * from t_article_type where user_id = $user_id";
+//        return $this->db->query($sql)->result();
+//    }
 }

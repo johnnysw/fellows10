@@ -99,12 +99,9 @@ class Admin extends CI_Controller{
         }else{
             echo 'fail';
         }
-
-
     }
 
     public function get_comment_to_me(){
-
         $user_id = $this->session->userdata('loginedUser') -> user_id;
         $results = $this->comment_model->get_comment($user_id);
         if($results){
@@ -113,5 +110,38 @@ class Admin extends CI_Controller{
             ));
         }
 
+    }
+
+    public function delete_comment(){
+
+        $comment_id = $this->input->get('comment_id');
+        $row = $this->comment_model->delete_comment($comment_id);
+        if($row > 0){
+            redirect('admin/get_comment_to_me');
+        }else{
+            echo 'fail';
+        }
+    }
+
+    public function delete_comment_by_commUser(){
+
+        $commUser = $this->input->get('commUser');
+        $user_id = $this->session->userdata('loginedUser')->user_id;
+        $row = $this->comment_model->delete_comment_by_commUser($commUser,$user_id);
+        if($row>0){
+            redirect('admin/get_comment_to_me');
+        }else{
+            echo 'fail';
+        }
+    }
+
+    public function get_blog_type(){
+        $user_id = $this->session->userdata('loginedUser')->user_id;
+        $results = $this->article_model->get_types_by_user($user_id);
+        if($results){
+            $this->load->view("blogCatalogs",array(
+                'results'=>$results
+            ));
+        }
     }
 }

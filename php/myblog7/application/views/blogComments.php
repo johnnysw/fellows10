@@ -43,8 +43,8 @@ $loginedUser = $this->session->userdata('loginedUser');
 				<div class="content"><p><?php echo $result->content?></p></div>
 				<div class="opts">
 					<span style="float:right;">
-					<a href="javascript:delete_c_by_id(24027,154693,261665734)">删除</a> |
-					<a href="javascript:delete_c_by_user(154693)">删除此人所有评论</a>
+					<a href="admin/delete_comment?comment_id=<?php echo $result->comm_id?>">删除</a> |
+					<a href="admin/delete_comment_by_commUser?commUser=<?php echo $result->user_id?>">删除此人所有评论</a>
 					</span>
 					<?php echo $result->post_date?>
 				</div>
