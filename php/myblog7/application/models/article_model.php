@@ -36,6 +36,21 @@ class Article_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function get_article_type($type_id){
+        $sql = "select * from t_article_type where type_id = $type_id";
+        return $this->db->query($sql)->row();
+
+    }
+
+    public function update_type($type_id,$type_name){
+        //update t_article_type set type_name = "111" where type_id = 1
+        $this->db->set('type_name', $type_name);
+        $this->db->where('type_id', $type_id);
+        $this->db->update('t_article_type');
+        return $this->db->affected_rows();
+    }
+
+
 //    public function get_blog_by_id($id){
 //        $sql = "select * from t_article where article_id = $id";
 //        return $this->db->query($sql)->row();

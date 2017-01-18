@@ -144,4 +144,28 @@ class Admin extends CI_Controller{
             ));
         }
     }
+
+    public function get_article_type(){
+        $type_id = $this->input->get('type_id');
+        $user_id = $this->session->userdata('loginedUser')->user_id;
+//        $type_name = $this->input->get('type_name');
+        $row = $this->article_model->get_article_type($type_id);
+        $results = $this->article_model->get_types_by_user($user_id);
+        if($row){
+            $this->load->view('editCatalog',array(
+                'row'=>$row,
+                'results'=>$results
+
+            ));
+        }
+    }
+
+    public function update_type(){
+        $type_id = $this->input->post('type_id');
+        $type_name = $this->input->post('type_name');
+        $row = $this->article_model->update_type($type_id,$type_name);
+        if($row>0){
+            redirect("admin/get_blog_type");
+        }
+    }
 }
