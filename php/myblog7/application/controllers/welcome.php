@@ -78,4 +78,29 @@ class Welcome extends CI_Controller {
 			$this -> load -> view('reg');
 		}
 	}
+
+	public function userSettings(){
+
+		$mood = $this->session->userdata("loginedUser")->mood;
+
+		$data['mood'] = $mood;
+
+		$this->load->view("userSettings",$data);
+
+	}
+
+	public function update_setting(){
+
+		$new_mood = $this->input->post('mood');
+		$user_id = $this->session->userdata("loginedUser")->user_id;
+		$this -> load -> model('user_model');
+		$row = $this->user_model->update_setting($user_id,$new_mood);
+		if($row){
+			$user = $this->session->userdata("loginedUser");
+			$user->mood = $new_mood;
+			$this->session->set_userdata('loginedUser',$user);
+			redirect("welcome/userSettings");
+		}
+
+	}
 }

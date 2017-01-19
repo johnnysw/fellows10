@@ -26,4 +26,10 @@ class User_model extends CI_Model{
         ));
         return $this -> db -> affected_rows();
     }
+    public function update_setting($user_id,$mood){
+        $this->db->set('mood',$mood);
+        $this->db->where('user_id',$user_id);
+        $this->db->update("t_user");
+        return $this->db->affected_rows();
+    }
 }
