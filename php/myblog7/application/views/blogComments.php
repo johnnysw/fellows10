@@ -35,7 +35,7 @@ $loginedUser = $this->session->userdata('loginedUser');
 <div class="MainForm BlogCommentManage">
   <h3>共有 3 篇博客评论，每页显示 20 个，共 1 页</h3>
   <ul>
-	  <?foreach ($results as $result){?>
+	  <?php foreach ($list as $result){?>
 		<li id="cmt_24027_154693_261665734" class="row_1">
 			<span class="portrait"><a href="#" target="_blank"><img src="images/portrait.gif" alt="Johnny" title="Johnny" class="SmallPortrait" user="154693" align="absmiddle"></a></span>
 			<span class="comment">
@@ -53,6 +53,7 @@ $loginedUser = $this->session->userdata('loginedUser');
 	</li>
 	  <?php }?>
 	  </ul>
+	<?php echo $page?>
 
 </div>
 </div>

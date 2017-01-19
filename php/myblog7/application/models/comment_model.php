@@ -36,4 +36,13 @@ class Comment_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+
+    public function get_comment_limit($n,$o,$user_id) {
+        if($o==''){$o=0;}
+        $sql = "select c.*,a.title,u.username from t_article a,t_comment c,t_user u where c.user_id = u.user_id and c.article_id = a.article_id and a.user_id = $user_id limit $o,$n";
+        $result = $this->db->query ($sql);
+        $re = $result->result ();
+        return $re;
+    }
+
 }

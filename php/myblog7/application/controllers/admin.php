@@ -89,7 +89,6 @@ class Admin extends CI_Controller{
     }
 
     public function save_comment(){
-
         $id = $this->input->post('id');
         $content = $this->input->post('content');
         $user_id = $this->session->userdata('loginedUser')->user_id;
@@ -104,13 +103,34 @@ class Admin extends CI_Controller{
     public function get_comment_to_me(){
         $user_id = $this->session->userdata('loginedUser') -> user_id;
         $results = $this->comment_model->get_comment($user_id);
-        if($results){
-            $this->load->view("blogComments",array(
-                'results'=>$results
-            ));
-        }
+        $this->load->library('pagination');
 
+        $add = 'admin/get_comment_to_me';
+        $count = count($results); //取数量
+        $config = $this->page_config( $count, $add );
+        $this->pagination->initialize($config);
+        //$this->load->library ('table');
+        $data['page'] = $this->pagination->create_links();
+        $data['list'] = $this->comment_model->get_comment_limit( $config ['per_page'], $this->uri->segment(3),$user_id);
+
+        if($results){
+            $this->load->view("blogComments",$data);
+        }
     }
+
+    //分页设置
+    function page_config($count, $add) {
+        $config ['base_url'] = $add; //设置基地址
+        //$config ['uri_segment'] = 3; //设置url上第几段用于传递分页器的偏移量
+        $config ['total_rows'] = $count;
+        $config ['per_page'] = 2; //每页显示的数据数量
+        $config ['first_link'] = '首页';
+        $config ['last_link'] = '末页';
+        $config ['next_link'] = '下一页>';
+        $config ['prev_link'] = '<上一页';
+        return $config;
+    }
+
 
     public function delete_comment(){
 
