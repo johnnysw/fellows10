@@ -18,7 +18,8 @@
             var oFirstLi = oUl1.children[0];
             /*var oLi = document.createElement('li');
             oLi.innerHTML = 'item 1';*/
-            var oLi = oFirstLi.cloneNode(true);
+            ///var oLi = oFirstLi.cloneNode(true); ///true递归clone,否则只clone<li><li>
+            var oLi = oFirstLi;             ///如果被插入的节点已经存在于当前文档的文档树中,则那个节点会首先从原先的位置移除,然后再插入到新的位置. http://www.w3school.com.cn/tiy/t.asp?f=jsref_node_appendchild2
             oUl1.appendChild(oLi);
         };
     </script>

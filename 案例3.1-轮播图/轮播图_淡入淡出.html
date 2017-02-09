@@ -93,7 +93,7 @@
         <span id="next" onselectstart="return false;">&gt;</span>
     </div>
 </div>
-<script src="jslib.js"></script>
+<script src="jslib2.js"></script>
 <script>
     var oContainer = document.getElementById('container');
     var oTab = document.getElementById('tab');
@@ -140,6 +140,7 @@
         oImg.style.opacity = 0;
         oImg.style.filter = "alpha(opacity=0)";
         oImg.style.zIndex = ++zIndex;
+        console.log(oImg.style.zIndex);
 
         animate(oImg, {opacity: 100});
     }
@@ -156,8 +157,6 @@
             oNext.onclick();
         }, 2000);
     };
-
-
 
 </script>
 </body>

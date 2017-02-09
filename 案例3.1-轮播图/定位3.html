@@ -25,8 +25,13 @@
     <script>
         var oDiv = document.getElementById("div1");
         window.onscroll = function(){
+            //console.log(document.documentElement.scrollTop);         ///一般为0，整个document scroll位置
+            //console.log( document.body.scrollTop);                  ///scroll位置
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            //var scrollTop = document.body.scrollTop;
+            console.log(scrollTop)
             oDiv.style.top = scrollTop + 300 + "px";
+            console.log(oDiv.style.top)
         }
 
         //number string boolean null undefined
@@ -45,6 +50,7 @@
 //            console.log("false");
 //        }
     </script>
+<div>ah</div>
 </body>
 </html>
 

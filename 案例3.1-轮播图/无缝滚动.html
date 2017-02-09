@@ -12,7 +12,7 @@
             list-style: none;
         }
         #container{
-            width: 390px;
+            width: 363px;
             height: 200px;
             border: 1px solid #000;
             margin: 100px auto;
@@ -20,7 +20,7 @@
             position: relative;
         }
         #content{
-            width: 520px;
+            width: 484px;
             position: absolute;
         }
         #content li{
@@ -32,7 +32,9 @@
             line-height: 120px;
             font-size: 30px;
             float: left;
-            margin-right: 10px;
+            //margin-right: 10px;
+            border-right:1px groove white ;
+            cursor:pointer;
         }
         #prev, #next{
             width: 50px;
@@ -48,6 +50,7 @@
         #arrows{
             width: 110px;
             height: 30px;
+            /*overflow: hidden;*/
             position: absolute;
             left: 50%;
             margin-left: -55px;
@@ -62,6 +65,10 @@
             <li>2</li>
             <li>3</li>
             <li>4</li>
+            <!--<li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>-->
         </ul>
         <div id="arrows">
             <span id="prev">向左</span>
@@ -72,26 +79,45 @@
         var oContent = document.getElementById("content");
         var oPrev = document.getElementById("prev");
         var oNext = document.getElementById("next");
-        var speed = 5;
+        const constSpeed=1;
+        var speed = constSpeed;
 //        var aLi = oContent.getElementsByTagName("li");
         oContent.innerHTML += oContent.innerHTML;
 
 //        console.log(aLi.length);
+//        console.log(oContent.offsetWidth);
+        //console.log(oContent.style);
         oContent.style.width = oContent.offsetWidth * 2 + "px";
-        setInterval(function(){
-            oContent.style.left = oContent.offsetLeft - speed + "px";
-            if(oContent.offsetLeft <= -oContent.offsetWidth / 2){
-                oContent.style.left = 0;
-            }
-            if(oContent.offsetLeft > 0){
-                oContent.style.left = -oContent.offsetWidth / 2 + "px";
-            }
-        }, 50);
+        var timer;
+        var run = function() {
+                timer = setInterval(function(){
+                oContent.style.left = oContent.offsetLeft - speed + "px";
+                //console.log(oContent.offsetLeft);
+                if(oContent.offsetLeft <= -oContent.offsetWidth / 2){
+                    ///clearInterval(time);
+                    oContent.style.left = 0;
+
+                }
+                if(oContent.offsetLeft > 0){
+                    oContent.style.left = -oContent.offsetWidth / 2 + "px";
+                }
+            }, 10);
+        };
+        console.log(oContent.style.width);
+        //run();
+        oContent.onmouseout=function () {
+            //run();
+            console.log(run);
+        }
+        oContent.onmouseover=function () {
+            clearInterval(timer);
+        }
         oPrev.onmouseover = oNext.onmouseover = function(){
-            if(this == oPrev){
-                speed = 5;
+            console.log(this)
+            if(this === oPrev){
+                speed = constSpeed;
             }else{
-                speed = -5;
+                speed = -constSpeed;
             }
         };
     </script>

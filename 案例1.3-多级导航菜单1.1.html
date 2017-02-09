@@ -72,22 +72,35 @@
             </ul>
         </li>
     </ul>
-    <h1>haha</h1>
     <script>
         var oMenu = document.getElementById('menu');
-        var aLi = oMenu.children;
-        //console.log(aLi);
-        for(var i=0; i<aLi.length; i++){
-            aLi[i].onmouseover = function(){
-                //console.log(this.children[1]);
-                this.children[1].style.display = 'block';
-                //this.getElementsByTagName('ul')[0].style.display = 'block';
-            };
+        var aMainMenu = oMenu.getElementsByTagName('a');//oMenu.getElementsByClassName('main-menu');
+        var aSubMenu = oMenu.getElementsByTagName('ul');
+        var count = 0;
+        //console.log(aMainMenu.length);
+        for(var i=0; i<aMainMenu.length; i++){
+            if(aMainMenu[i].className == 'main-menu'){
 
-            aLi[i].onmouseout = function(){
-                this.children[1].style.display = 'none';
-                //this.children[1].style.display = 'none';
-            };
+                aMainMenu[i].index = count;//为每一个main-menu对象添加自定义属性
+                aSubMenu[count].index=count;
+
+                aMainMenu[i].onmouseover = function(){
+                    //console.log(this.index);
+                    aSubMenu[  this.index  ].style.display = 'block';
+                };
+                aSubMenu[count].onmouseover=function () {
+                    aSubMenu[  this.index  ].style.display = 'block';
+                }
+
+                aMainMenu[i].onmouseout = function(){
+                    aSubMenu[  this.index  ].style.display = 'none';
+                };
+                aSubMenu[count].onmouseout=function () {
+                    aSubMenu[  this.index  ].style.display = 'none';
+                }
+                count++;
+            }
+
         }
 
     </script>

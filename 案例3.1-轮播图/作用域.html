@@ -6,16 +6,17 @@
 </head>
 <body>
 <script>
-    /*
     for(var i=0; i<3; i++){
         console.log(i);
     }
-    console.log(i);//js中没有块级作用域
-    */
-//    var a = 4;
+    console.log(i);             //js中没有块级作用域，作用域只体现在函数上，不体现在循环上
+
+
+   var a = 4;
     function aa(){
-        //console.log(a);//undefined,js中局部变量到处都有定义，相当于提前声明
-        var a = b = 5;//函数的局部作用域
+        console.log(a);    ///undefined,js中局部变量到处都有定义，js只找最近的。相当于提前声明
+        var a = b = 5;//函数的局部作用域         ///声明提前了，但赋值不提前。 ///没有var
+        //console.log(a);
     }
     aa();
 

@@ -59,9 +59,10 @@
     for(var i=0; i<aH3.length; i++){
         aH3[i].bShow = false;
         aH3[i].onclick = function(){
-//            console.log( this.nextSibling );
-            //console.log( this.nextElementSibling );
+            console.log( this.nextSibling );                      ///return node类型
+            //console.log( this.nextElementSibling);                 ///return Element类型
             var oSubMenu = next(this);
+            //var oSubMenu = this.nextElementSibling;
 
             if(oSubMenu){
                 /*if(oSubMenu.style.display == 'block'){
@@ -75,20 +76,18 @@
                     oSubMenu.style.display = 'block';
                 }
                 this.bShow = !this.bShow;
-
-
             }
 
         };
     }
-
+var cnt =0;
     function next(elem){
         do{
             elem = elem.nextSibling;
         }while(elem && elem.nodeType != 1);
         return elem;
     }
-</script>t
+</script>
 </body>
 </html>
 

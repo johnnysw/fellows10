@@ -77,18 +77,27 @@
         var aMainMenu = oMenu.getElementsByTagName('a');//oMenu.getElementsByClassName('main-menu');
         var aSubMenu = oMenu.getElementsByTagName('ul');
         var count = 0;
+        //console.log(aMainMenu.length);
         for(var i=0; i<aMainMenu.length; i++){
             if(aMainMenu[i].className == 'main-menu'){
 
-                aMainMenu[i].index = count++;//为每一个main-menu对象添加自定义属性
+                aMainMenu[i].index = count;//为每一个main-menu对象添加自定义属性
+                aSubMenu[count].index=count;
 
                 aMainMenu[i].onmouseover = function(){
+                    //console.log(this.index);
                     aSubMenu[  this.index  ].style.display = 'block';
                 };
-
+                aSubMenu[count].onmouseover=function () {
+                    aSubMenu[  this.index  ].style.display = 'block';
+                }
                 aMainMenu[i].onmouseout = function(){
                     aSubMenu[  this.index  ].style.display = 'none';
                 };
+                aSubMenu[count].onmouseout=function () {
+                    aSubMenu[  this.index  ].style.display = 'none';
+                }
+                count++;
             }
 
         }
