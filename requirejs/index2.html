@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">btn</button>
+    <!--<script src="hello.js"></script>-->
+
+    <script>
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function(){
+            var oScript = document.createElement("script");
+            oScript.src = "hello.js";
+            document.body.appendChild(oScript);
+        };
+    </script>
+
+</body>
+</html>
