@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        类：具有相同属性的方法的对象的集合
+        对象：
+
+        人类 ---  张三
+
+        Class People(){
+        }
+         People zhangsan = new People();
+
+        * */
+
+        function People(name, age){/* 类 */
+            this.name = name;
+            this.age = age;
+        }
+        People.prototype.showName = function(){
+            alert(this.name);
+        };
+
+        /* p1\p2 对象 */
+        var p1 = new People("zhangsan", 18);
+
+        var p2 = new People("lisi", 20);
+
+        p1.showName();
+        p2.showName();
+
+
+
+        obj.onclick = function(){
+            window.setInterval(function(){
+                this
+            }, 1000);
+        };
+
+//        function(){}.bind(obj, a, b);
+//
+//        call(obj, a, b)
+//        apply(obj, [a, b])
+
+
+
+    </script>
+</body>
+</html>
