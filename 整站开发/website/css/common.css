@@ -18,10 +18,9 @@ img{
 /* 通用样式开始 */
 .wrapper{
     width: 1002px;
+    height: 100%;
     margin: 0 auto;
 }
-
-
 /* 通用样式结束 */
 
 /* nav开始 */
@@ -29,7 +28,6 @@ img{
     height: 120px;
 }
 #nav .wrapper{
-    height: 120px;
     /*background: #cccccc;*/
     position: relative;
 }
@@ -50,6 +48,9 @@ img{
 #menu li a{
     font-size: 15px;
     color: #626262;
+}
+#menu li a:hover{
+    color: #42baff;
 }
 #menu span{
     width: 1px;

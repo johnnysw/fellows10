@@ -1,4 +1,4 @@
-$(function(){
+require(["jquery", "carousel"], function($, Carousel){
     var $searchIpt = $("#search-ipt");
     $("#search span").on("click", function(){
         alert($searchIpt.val());
@@ -9,6 +9,12 @@ $(function(){
         }
     });
 
-
-
+    var carousel = new Carousel();
+    carousel.init({
+        selector : "#imgs",
+        imgs : ["img/banner01.png", "img/banner02.png", "img/banner03.png", "img/banner04.png"],
+        buttonStyle : "circle",//square 表示索引的样式
+        arrowPos : "center",//center 表示前后按钮的位置
+        speed : 500//表示图片轮换的速度
+    });
 });
