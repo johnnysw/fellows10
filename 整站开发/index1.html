@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>div
+        <h1>hhhhhhh</h1>
+    </div>
+
+
+    <h1 style=''>h1h11hh1</h1>
+
+
+    <form action="">
+        <label for="uname">用户名：</label>
+        <input type="text" name="username" id="uname"><br>
+        密码： <input type="password"><br>
+        学校 ：
+        <select name="" id="">
+            <option value="">林大</option>
+            <option value="">理工</option>
+            <option value="" selected="selected">黑大</option>
+        </select><br>
+        性别：
+        男 <input type="radio" checked="checked">
+        女 <input type="radio"><br>
+
+        兴趣：
+        <input type="checkbox">足球
+        <input type="checkbox" checked="checked">篮球
+        <input type="checkbox">排球<br>
+
+        <input type="submit">
+        <input type="reset">
+
+
+    </form>
+    &nbsp;
+    &lt;
+    &gt;
+    &#60;
+
+    <span>span
+        <div>div</div>
+    </span>
+
+    <style>
+        #div1{
+            background: #ff0000;
+        }
+    </style>
+    <div id="div1" data-aa="123" onclick="alert(123);">div</div>
+    <p>pppp</p>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+/*        var oDiv1 = document.getElementById("div1");
+        /!*oDiv1.setAttribute("aa", "123");
+        console.log(oDiv1.getAttribute("aa"));
+
+        oDiv1.bb = "456";
+        console.log(oDiv1.bb);*!/
+        console.log(oDiv1.dataset.aa);*/
+
+
+        $(function(){
+            var $div1 = $("#div1");
+//            console.log($div1.attr("aa"));
+            console.log($div1.data("aa"));
+
+            $("#tab li").on("click", function(){});
+            $("#tab").on("click", "li", function(){});
+        });
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
