@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000000;
+        }
+    </style>
+    <link rel="stylesheet" href="css/animate.css">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
+</head>
+<body>
+    <div id="container"></div>
+    <div id="large-img"></div>
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        $(function(){
+            var num = 16;
+            var count = 0;
+            var padding = 2;
+            var tempPadding = 0;
+            var imgArr = [];
+            var $container = $("#container");
+            var $largeImg = $("#large-img").hide();
+            for(var i=0; i<num; i++){
+                var oImg = new Image();
+                oImg.onload = function(){
+                    count++;
+                    if(count == num){
+                        loadSuccess();
+                    }
+                };
+                oImg.index = i + 1;
+                oImg.src = "img/" + (i + 1) + ".jpg";
+                oImg.className = "animated bounceIn";
+                imgArr.push(oImg);
+            }
+
+            $container.on("tap", "img", function(e){
+                $container.css("display", "none");
+                var index = this.index;
+                $largeImg.css({
+                    height: $(document.body).height(),
+                    display : "block",
+                    background : 'url("img/' + index + '.large.jpg") no-repeat center',
+                    backgroundSize : "contain"
+                });
+                e.preventDefault();
+            });
+            $largeImg.on("tap", function(e){
+                $(this).css("display", "none").html("");
+                $container.css("display", "block");
+                e.preventDefault();
+            });
+
+            //图片加载完执行的函数
+            function loadSuccess(){
+                //排序：保证图片按照顺序排列
+                imgArr.sort(function(a, b){
+                    return a.index - b.index;
+                });
+                var clientWidth = $(document.body).width();
+                for(var i=0; i<imgArr.length; i++){
+                    if((i + 1) % 4 == 0){
+                        tempPadding = 0;
+                    }else{
+                        tempPadding = 2;
+                    }
+                    $(imgArr[i]).css({
+                        width: (clientWidth - 3 * padding) / 4,
+                        height: (clientWidth - 3 * padding) / 4,
+                        marginTop: tempPadding,
+                        marginRight: tempPadding,
+                        float: "left"
+                    });
+                    $container.append($(imgArr[i]));
+                }
+            }
+        });
+    </script>
+</body>
+</html>

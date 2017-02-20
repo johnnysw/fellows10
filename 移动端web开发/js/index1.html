@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        $(function(){
+            function isPC(){
+                if(navigator.userAgent.indexOf("Mobile") != -1){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+            var $div1 = $("#div1");
+
+            /*$div1.on("touchstart", function(){
+                console.log("touchstart");
+            });
+
+            $div1.on("touchend", function(){
+                console.log("touchend");
+            });
+
+            $div1.on("touchmove", function(){
+                console.log("touchmove");
+            });*/
+
+            $div1.on("click", function(){
+                console.log("click");
+            });
+            $div1.on("tap", function(){
+                console.log("tap");
+            });
+
+
+            /*            var eventType = "click";
+                        if(isPC()){
+                            eventType = "click";
+                        }else{
+                            eventType = "tap";
+                        }
+                        var $div1 = $("#div1");
+                       /!* $div1.on(eventType, function(){
+                            console.log(eventType);
+                        });*!/
+
+                        $div1.on("swipeleft", function(){
+                            console.log("swipeleft");
+                        });
+                        $div1.on("swiperight", function(){
+                            console.log("swiperight");
+                        });
+                        $div1.on("swipeup", function(e){
+                            console.log("swipeup");
+                            e.preventDefault();
+                        });
+                        $div1.on("swipedown", function(e){
+                            console.log("swipedown");
+                            e.preventDefault();
+
+                        });*/
+
+
+
+
+
+
+            /*$("#div1").on("touchstart", function(){
+                console.log("touchstart");
+            });
+            $("#div1").on("touchend", function(){
+                console.log("touchend");
+            });
+            $("#div1").on("touchmove", function(){
+                console.log("touchmove");
+            });*/
+
+            /*
+            touchstart
+            touchend
+            touchmove
+            touchcancel
+
+
+            PC   www.taobao.com
+            mobile  www.taobao.com => m.taobao.com
+
+            * */
+
+//            console.log(navigator.userAgent);
+
+
+        });
+
+
+
+    </script>
+</body>
+</html>
