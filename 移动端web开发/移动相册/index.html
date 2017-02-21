@@ -10,12 +10,9 @@
             margin: 0;
             padding: 0;
         }
-        body{
-            background: #000000;
-        }
     </style>
     <link rel="stylesheet" href="css/animate.css">
-    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 </head>
 <body>
     <div id="container"></div>
@@ -79,7 +76,7 @@
                     $(imgArr[i]).css({
                         width: (clientWidth - 3 * padding) / 4,
                         height: (clientWidth - 3 * padding) / 4,
-                        marginTop: tempPadding,
+                        marginTop: padding,
                         marginRight: tempPadding,
                         float: "left"
                     });
