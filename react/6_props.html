@@ -16,6 +16,11 @@
      * 必须是一个闭合的标签
      * */
     var SubMessagebox = React.createClass({
+        getDefaultProps : function(){
+            return {
+                arr : []
+            };
+        },
         render : function(){
             var msg = [];
             this.props.arr.forEach(function(elem, index){
@@ -34,7 +39,7 @@
             var arr = [1, 2, 3];
             return (
                     <div>
-                        <SubMessagebox str={data} arr={arr}/>
+                        <SubMessagebox str={data}/>
                         <div>asdfas</div>
                     </div>
 
