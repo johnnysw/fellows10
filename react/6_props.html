@@ -27,7 +27,11 @@
                 msg.push(<div key={index}>{elem}</div>);
             });
             return (
-                    <div>{msg}</div>
+                    <div>
+                        <div>{msg}</div>
+                        <div>{this.props.str}</div>
+                    </div>
+
             );
         }
     });
@@ -39,7 +43,7 @@
             var arr = [1, 2, 3];
             return (
                     <div>
-                        <SubMessagebox str={data}/>
+                        <SubMessagebox str={data} arr={arr}/>
                         <div>asdfas</div>
                     </div>
 
