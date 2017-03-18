@@ -1,3 +1,4 @@
+@import "common";
 $color:#ccc;
 $color:#000 !default;
 $cls:nav;
@@ -38,12 +39,7 @@ body{
   border-radius: 5px;
   box-shadow: 4px 5px 3px 5px $color2;
 }*/
-//混合宏
-@mixin border($color1:#ccc,$color2:#ddd){
-  border:1px solid $color1;
-  border-radius: 5px;
-  box-shadow: 4px 5px 3px 5px $color2;
-}
+
 
 .aa{
   width: 200px;
@@ -60,18 +56,73 @@ body{
 }
 .bb{
   @include css3(border-radius,10px);
+  a{
+    color:#ddd;
+  }
 }
 .cc{
   @include css3(border-radius,10px);
 }
+.ee{
+  width: 200px;
+  height: 300px;
+  @extend .bb;
+}
+
+%ff{
+  width: 200px;
+  height: 200px;
+}
+
+.g{
+
+  @extend %ff;
+
+}
+.h{
+  @extend %ff;
+}
+
+//函数
+
+@function add($a,$b){
+
+  @return $a+$b;
+}
+
+.k{
+  width: add(200px,300px);
+  //height: abs((-30px/20));
+  //font:20px/1.8 verdana, arial, sans-serif;
+  //height:str-length('abc');
+  /*css**/
+  height:str-index('abcd','a');
+
+  color:darken(#ddd,10%);
+
+}
 
 
+.arrow{
+  @include arrow('left',5px,red);
+
+}
+//top  bottom right left
 
 
+@for $i from 1 to 6{
+  .item-#{$i}{
+    width: $i*20px;
+  }
 
+}
+$icons:error warning right;
+@each $j in $icons{
+  .#{$j}{
+    background:url('images/#{$j}.jpg');
 
-
-
+  }
+}
 
 
 

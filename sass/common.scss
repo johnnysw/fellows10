@@ -1,0 +1,41 @@
+*{
+  margin:0px;
+  padding: 0;
+}
+ul{
+  list-style: none;
+}
+
+//混合宏
+@mixin border($color1:#ccc,$color2:#ddd){
+  border:1px solid $color1;
+  border-radius: 5px;
+  box-shadow: 4px 5px 3px 5px $color2;
+}
+
+//arrow
+
+@mixin arrow($dir,$width,$color){
+  width: 0;
+  height: 0;
+
+  border-width: $width;
+  border-style: solid;
+
+  @if($dir == 'top'){
+    border-color:transparent transparent $color transparent;
+  }
+  @if($dir == 'bottom'){
+    border-color:$color transparent transparent transparent;
+  }
+  @if($dir == 'left'){
+    border-color:transparent $color transparent transparent;
+  }
+  @if($dir == 'right'){
+    border-color:transparent transparent transparent $color;
+  }
+
+  /* border:5px solid transparent;
+   border-top:5px solid yellow;*/
+
+}
