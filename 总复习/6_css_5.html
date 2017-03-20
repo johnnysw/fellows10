@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+        }
+        #div1{
+            background: #ff0000;
+            /*display: none;*/
+            /*opacity: 0;*/
+            /*visibility: hidden;*/
+        }
+        #div2{
+            background: #ff0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="div1"></div><div id="div2"></div>
+
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        oDiv1.onclick = function(){
+            alert(123);
+        };
+    </script>
+</body>
+</html>
+
+<!--
+display:inline-block 有兼容性问题
+
+
+-->

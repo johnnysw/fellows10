@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#div1::before{
+            content: "after";
+            background: #ff0000;
+            display: block;
+        }*/
+        #div1{
+            text-shadow: 10px 10px 10px rgba(255, 0, 0, .5);
+            width: 100px;
+            border: 1px solid #000;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            /*font-family: 'diyfont';*/
+            box-shadow: 10px 10px 10px 10px rgba(255, 0, 0, .5);
+        }
+        #div2{
+            width: 400px;
+            height: 500px;
+            background: url(1.jpg) no-repeat;
+            border: 20px solid rgba(0, 0, 0, .5);
+            padding: 30px;
+            /*background-origin: border-box;*/
+            /*background-clip: padding-box;*/
+            background-size: cover;
+        }
+
+       /* @font-face {
+            font-family: 'diyfont';
+            src: url('diyfont.eot'); !* IE9+ *!
+            src: url('diyfont.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *!
+            url('diyfont.woff') format('woff'), !* chrome、firefox *!
+            url('diyfont.ttf') format('truetype'), !* chrome、firefox、opera、Safari, Android, iOS 4.2+*!
+            url('diyfont.svg#fontname') format('svg'); !* iOS 4.1- *!
+        }*/
+    </style>
+</head>
+<body>
+    <div id="div1">divdivdivdivdivdivdivdivdivdivdiv</div>
+    <div id="div2"></div>
+</body>
+</html>

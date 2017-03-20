@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="裤子,牛仔裤">
+        <meta name="description" content="这是一个我的个人网站">
+        <title>复习html</title>
+        <style>
+            /* css reset
+              normalize.css
+            */
+            /**{
+                margin: 0;
+                padding: 0;
+            }*/
+            body{
+                height: 2000px;
+            }
+            li{
+                list-style: none;
+            }
+            img{
+                border: 0;
+            }
+            a{
+                text-decoration: none;
+            }
+            #baidu{
+                width: 200px;
+                height: 200px;
+                background: #ff0000;
+            }
+            #div1{
+                background: #ff0000;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>h1</h1>
+        <h6>h6</h6>
+        <div id="div1">div</div>
+        <p>pppp</p>
+        <ul>
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+            <li>004</li>
+        </ul>
+        <a href="http://www.baidu.com" id="baidu">baidu</a>
+        <img src="xx.jpg" alt="图片加载失败" title="这是一张图片">
+        <span>文字</span>
+        <input type="text">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>click</button>
+        <table border="1">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+        </table>
+
+        <form action="user/login" onsubmit="alert(123);return false;">
+            <label>用户名： <input type="text" id="username" name="username"></label>
+            <label>密码： <input type="password"></label>
+            学校：<select>
+                <option value="">林大</option>
+                <option value="">黑大</option>
+
+
+            <input type="submit">
+            <input type="reset">
+            </select>
+            <button type="button">提交btn</button>
+        </form>
+
+    <!--
+    行级元素：span  a   img   input  textarea button
+    块级元素：p div  h1~h6  ul ol li
+    display:block inline  inline-block none box table table-cell
+    语义化标签
+    -->
+    </body>
+</html>

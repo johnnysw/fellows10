@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="add">add</button>
+    <ul id="tab">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+
+    <script>
+        var oUl = document.getElementById("tab");
+/*        var aLi = oUl.getElementsByTagName("li");
+        for(var i=0; i<aLi.length; i++){
+//            aLi[i].index = i;
+            (function(idx){
+                aLi[idx].onclick = function(){
+                    console.log(idx);
+                };
+            })(i);
+        }*/
+        oUl.onclick = function(e){
+            var target = e.target || window.event.srcElement;
+            console.log(target.innerHTML);
+        };
+
+        var oBtn = document.getElementById("add");
+        oBtn.onclick = function(){
+            var oLi = document.createElement("li");
+            oLi.innerHTML = Math.random();
+            oUl.appendChild(oLi);
+        };
+
+
+    </script>
+</body>
+</html>

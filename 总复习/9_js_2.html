@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 300px;
+            height: 300px;
+            background: #00ff00;
+        }
+        #div3{
+            width: 200px;
+            height: 200px;
+            background: #ffff00;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+
+
+<script>
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");
+    var oDiv3 = document.getElementById("div3");
+//    oDiv1.onclick = function(){alert(1);};
+//    oDiv1.onclick = function(){alert(2);};
+/*    oDiv1.addEventListener("click", function(){
+        alert("div1");
+    }, true);
+    oDiv2.addEventListener("click", function(){
+        alert("div2");
+    }, true);
+    oDiv3.addEventListener("click", function(){
+        alert("div3");
+    }, true);*/
+
+    /*oDiv1.attachEvent("onclick", function(){
+        alert(1);
+    });*/
+    //先捕获，后冒泡
+/*    var a = function(){
+        alert("div1");
+    };
+    var b = function(){
+        alert("div1");
+    };
+    alert(a === b);*/
+
+
+/*    var fn = function(){
+        alert("div1");
+    };*/
+/*    oDiv1.addEventListener("click", fn);
+    oDiv1.removeEventListener("click", fn);*/
+/*
+    oDiv1.attachEvent("onclick", fn);
+    oDiv1.detachEvent("onclick", fn)*/
+
+    var fn = function(){
+        alert("123");
+    };
+    var fn2 = function(){
+        alert("456");
+    };
+    addEvent(oDiv1, "click", fn);
+    addEvent(oDiv1, "click", fn2);
+    removeEvent(oDiv1, "click", fn);
+    removeEvent(oDiv1, "click", fn2);
+
+    function addEvent(elem, type, handler){
+        if(elem.addEventListener){
+            elem.addEventListener(type, handler);
+        }else if(elem.attachEvent){
+            elem[type+handler] = function(){
+                handler.call(elem);
+            };
+            elem.attachEvent("on" + type, elem[type+handler]);
+        }else{
+            elem["on" + type] = handler;//elem.onclick = function(){};
+        }
+    }
+    function removeEvent(elem, type, handler){
+        if(elem.removeEventListener){
+            elem.removeEventListener(type, handler);
+        }else if(elem.detachEvent){
+            elem.detachEvent("on" + type, elem[type+handler]);
+        }else{
+            elem["on" + type] = null;
+        }
+    }
+
+
+    //call  apply  bind 区别
+    /*function fn(arg1, arg2){
+        console.log(this);
+        console.log(arg1);
+        console.log(arg2);
+    }
+    var obj = {
+        name : "zhangsan",
+        age : 20
+    };//new Object()
+//    fn.call(obj, "123", "456");
+//    fn.apply(obj, ["123", "456"]);
+    fn.bind(obj, "123", "456")();*/
+
+</script>
+</body>
+</html>

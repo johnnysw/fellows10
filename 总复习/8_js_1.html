@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+    </style>
+    <script>
+        /*window.onload = function(){
+            var oDiv = document.getElementById("div1");
+
+        };*/
+
+    </script>
+</head>
+<body>
+    <div id="div1">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+
+    <script>
+        /*
+        * 变量基本类型：number string boolean undefined null
+        * */
+       /* var a;
+        console.log(a);
+        var oDiv = document.getElementById("div1");
+        console.log(oDiv);
+        console.log(a == oDiv);
+        console.log(a === oDiv);
+
+//        aa();
+        function aa(){
+            alert(123);
+        }
+
+        var bb = function(){
+            alert(456);
+        };
+        bb();
+
+        var oDiv, iNum, aArr, sName;*/
+
+       /* var oObj1 = document.getElementById("id");
+        var aDiv = document.getElementsByTagName("div");
+        document.getElementsByClassName("aa");//兼容性
+        document.getElementsByName("username");//兼容性
+        document.querySelector("#id");//兼容性
+        document.querySelectorAll(".aa");//兼容性
+
+        var oDiv = document.createElement("div");
+        oDiv.innerHTML = "sadfasdf";
+        document.body.appendChild(oDiv);
+
+        var oDiv2 = document.createElement("div");
+        oDiv2.innerHTML = "div2";
+        document.body.insertBefore(oDiv2, oDiv);
+        document.body.removeChild(oDiv2);*/
+
+/*        var oImg = new Image();
+        oImg.onload = function(){
+
+        };
+        oImg.src = "xx.jpg";*/
+
+/*        window.onresize = function(){
+            console.log(document.body.clientWidth);
+        };*/
+/*        window.onscroll = function(){
+            var iScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(iScrollTop);
+        };*/
+        /*
+        * 事件源、事件处理函数、事件对象e
+        *
+        *
+        * */
+
+        var oDiv1 = document.getElementById("div1");
+        oDiv1.onclick = function(e){
+            var target = e.target || window.event.srcElement;
+            console.log(target);
+        };
+
+
+
+
+//        oDiv.cloneNode();
+
+        /*console.log(aDiv.constructor);
+        var arr = [1, 2, 4];
+        console.log(arr.constructor);*/
+
+    </script>
+
+</body>
+</html>
