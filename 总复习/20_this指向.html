@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<script>
+
+    /*setTimeout(function(){
+        console.log(this);
+    },10);
+
+    function aa(){
+        console.log(this);
+    }
+    aa();*/
+
+    obj = {
+        name:'zhangsan',
+        say:function(){
+            console.log(this);
+        }
+    };
+    obj.say();
+
+    var oDiv = document.getElementById('div1');
+    var oDiv2 = document.getElementById('div2');
+
+    oDiv.onclick = function(e){
+        var target = e.target || window.event.srcElement;
+//        console.log(oDi);
+        console.log(this);
+        console.log(target);
+
+    };
+    oDiv2.onclick = function(){
+        console.log(this);
+    }
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
