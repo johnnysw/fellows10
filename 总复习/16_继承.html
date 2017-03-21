@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function A(){
+        this.name = 'zhangsan';
+        this.hobby = ['dance','sing'];
+    }
+    A.prototype.say = function(){
+        console.log('hello');
+    }
+
+    function B(){
+        A.call(this);
+    }
+    B.prototype = new A();
+    B.prototype.constructor = B;
+
+    var oB = new B();
+
+
+
+    function B(){
+        A.call(this);
+    }
+    B.prototype = new A();
+   /* B.prototype.name ='zhangsan';
+    B.prototype.hobby =['dance','sing'];*/
+//    B();
+    B.prototype.constructor = B;
+
+    var oB1 = new B();
+    var oB2 = new B();
+
+    console.log(oB1.constructor);
+    /*oB1.hobby.push('shoping');
+
+     console.log(oB1.hobby);
+     console.log(oB2.hobby);*/
+
+
+
+</script>
+
+
+</body>
+</html>
