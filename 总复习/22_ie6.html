@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*.aa,.bb{
+            display: inline-block;
+            background: #ff0000;
+            vertical-align:bottom;
+            /!*_display:inline;*!/
+
+        }*/
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*3像素bug
+        .aa{
+            width: 200px;
+            height: 200px;
+            float: left;
+            background: #ff0000;
+            _margin-right:-3px;
+        }
+        .bb{
+            /!*float: left;*!/
+            background: #0000ff;
+            width: 200px;
+            height: 200px;
+        }*/
+        .cc{
+            width: 200px;
+            height: 200px;
+            background: url("starts.png") repeat;
+            _background:none;
+            _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="starts.png");
+        }
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #a{
+            width: 200px;
+            height: 200px;
+            float: left;
+            background: #ff0000;
+        }
+        #b{
+            width: 200px;
+            height: 200px;
+            float: right;
+            background: #0000ff;
+        }
+        .div1{
+            width: 800px;
+            background: #ffff00;
+        }
+    </style>
+</head>
+<body>
+<div class="div1 clearfix">
+    <!--<div class="aa">aaa</div>-->
+    <!--<div class="bb">bbb</div>-->
+    <!--<div style="clear: both"></div>-->
+    <div id="a">
+
+    </div>
+    <div id="b">
+
+    </div>
+</div>
+
+
+    <div class="cc">
+        bbb
+    </div>
+</body>
+</html>
