@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>1111</li>
+    <li>2222</li>
+    <li>3333</li>
+</ul>
+    <script>
+        var aLi = document.getElementsByTagName('li');
+        console.log(Array.from(aLi));
+
+//        var arr = [3];//new Array(3);
+
+//        var arr = Array.of(3);
+//
+//        console.log(arr);
+
+        //Array.from();
+
+//        var obj = {
+//            0:'aa',
+//            1:"bb",
+//            length:1
+//        }
+//        console.log(Array.from(obj));
+
+//        var arr = ["a", "b", "c", 'd', "e", "f"];
+//                  ["a", "b", "d", "e", "e", "f"]
+        //1,被替换的开始坐标，2，复制的开始坐标，3复制的结束坐标（不包括）。
+//        arr.copyWithin(2,3,5);
+//
+//        console.log(arr);
+
+        //fill()
+
+//        arr.fill(10,3,5);
+//        arr.length = 1;
+//        arr.splice(3,2,10);
+//
+//        console.log(arr);
+
+        var arr = [1,2,3,4,5,6,7,8];
+
+        var val = arr.findIndex(function(value,index,aa){
+            index++;
+            return index > 3;
+        });
+
+        console.log(val);
+
+
+
+
+
+    </script>
+</body>
+</html>

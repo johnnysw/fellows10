@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+    </ul>
+<script>
+    //1.块作用域，2.不变量提升，3.不能重复声明，4.临时失效区
+    //5.形成闭包
+    var aLi = document.getElementsByTagName('li');
+    for(let i=0;i<aLi.length;i++){
+//        aLi[i].index = i;
+        aLi[i].onclick = function(){
+            console.log(i);
+        }
+    }
+
+//    var a = 10;
+
+//    let a = 10;
+
+//    console.log(a);
+//    let a = 10;
+    //块作用域,let,const
+//    for(let i=0;i<5;i++){
+//        console.log(i);
+//    }
+//    console.log(i);
+//    {
+//        let a = 10;
+//    }
+//    console.log(a);
+
+//    let a = 5;
+//    a = 20;
+
+//    console.log(a);
+//    var a = 5;
+//    function fn(){
+//        console.log(a);
+//        let a = 10;
+//    }
+//    fn();
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+

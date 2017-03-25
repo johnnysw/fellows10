@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+
+//        var [a,b] = [1,2,3];
+//        var [a,,[b,c=0]] = [1,2,[3,null]];
+
+
+//        console.log(a,b,c);
+
+        //var a = 2,b=6;
+
+       // a = [b,b=a][0];
+
+        //[a,b] = [b,a];
+//
+//        a = a+b; // 30
+//        b = a-b; // 10
+//        a = a-b; // 20;
+
+//        console.log(a,b);
+
+//        var obj = {
+//            x:1,
+//            y:2
+//        }
+
+//        var {x:a,y:b} = {x:1, y:{z:3}};
+//
+//        console.log(a,b);
+
+
+//        function fn({a,b}){
+//            console.log(a,b);
+//        }
+//
+//        fn();
+
+
+//        var [a,b] = "123";
+//        console.log(a,b);
+//
+//    $.get('url',{},function(data){
+//
+//    },'text');
+//
+//
+//    $.get('url',{},function(data){
+//        data.id;
+//        console.log();
+//    },'text');
+
+      //  promise;1,pending,2,resolve,3.reject
+
+//        var promise = new Promise(function(resolve,reject){
+//            $.get('url',{},function(data){
+//                resolve(data);
+//            });
+//        });
+
+//        promise.then(function(data){
+//            $.get('url',{},function(data){
+//                Promise.resolve(data);
+//            });
+//        },function(data){
+//
+//        }).then();
+//
+//        console.log(4);
+
+    var p1 = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log(1);
+            resolve(2);
+        },300);
+    });
+
+    var p2 = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log(3);
+            reject(4);
+        },200);
+    });
+
+//        Promise.all([p1,p2]).then(function(data){
+//            console.log(data);
+//        },function(data){
+//            console.log(data);
+//        });
+
+    Promise.race([p1,p2]).then(function(data){
+        console.log(data);
+    },function(data){
+        console.log(data);
+    });;
+
+
+
+
+
+    </script>
+</body>
+</html>

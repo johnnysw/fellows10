@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+</ul>
+
+    <script>
+        var aLi = document.getElementsByTagName('li');
+        for(let i=0;i<aLi.length;i++){
+            aLi[i].onclick = function(){
+//                var _this = this;
+//                setTimeout(function(){
+//                    console.log(_this.innerHTML);
+//                },2000);
+                setTimeout(()=>console.log(this.innerHTML),2000);
+
+            }
+        }
+//        var fn = function(){
+//            console.log("aaa");
+//        }
+//        fn();
+//
+//        var fn1 = (a,b)=>{console.log("aaa");}
+//
+//        var obj = {
+//            aa:'zs',
+////            say:function(){
+////                console.log(this.name);
+////            }
+//            say:()=>console.log(this.aa+"00")
+//        }
+//
+//        obj.say();
+
+
+    </script>
+</body>
+</html>
