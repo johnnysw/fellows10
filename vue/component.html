@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <!--<my-demo :msg="msg" msg-gg="bbb"></my-demo>-->
+        <my-demo>
+
+            <div slot="title">
+                我是标题
+            </div>
+            <div slot="content">
+                我是内容
+            </div>
+
+
+        </my-demo>
+        <!--<demo2></demo2>-->
+    </div>
+    <script src="vue.js"></script>
+    <script type="text/x-template" id="show">
+
+        <div>
+            <h1>hhhhh</h1>
+
+                标题:
+                <slot name="title">
+                    当没有标题时
+                </slot>
+                内容:
+                <slot name="content">
+                    当没有内容时
+                </slot>
+
+            <p>ppppppppp</p>
+        </div>
+
+    </script>
+    <script>
+        //全局组件
+//        Vue.component('my-demo',{
+//            template:"<div>sssssssss</div>"
+//        });
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'aaaa'
+            },
+            components:{
+                'my-demo':{
+//                    template:"<div>{{msg}},{{msgGg}}</div>",
+                    template:"#show",
+                    props:['msg','msgGg']
+                },
+                demo2:{
+                    template:"<h1>sssssssss</h1>"
+                }
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>
