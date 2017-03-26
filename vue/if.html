@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+
+    <template v-if="show">
+        <h1>hhhh</h1>
+        <p>pppppp</p>
+        <h1>hhhhhh</h1>
+    </template>
+    <template v-else>
+        <h1>h11111hhh</h1>
+        <p>pp111111pppp</p>
+        <h1>hhh111111hhh</h1>
+    </template>
+
+
+
+
+    <!--<div v-else-if="a==2">-->
+        <!--vvvvvvvvvv-->
+    <!--</div>-->
+    <!--<div v-else>-->
+        <!--ccccccccccc-->
+    <!--</div>-->
+
+    <!--<div v-show="show">-->
+        <!--aaaaaaaaaaaa-->
+    <!--</div>-->
+
+</div>
+<script src="vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            show:true
+        }
+    });
+
+
+</script>
+</body>
+</html>

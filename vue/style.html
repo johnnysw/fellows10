@@ -19,7 +19,10 @@
     <div id="app">
 
         <!--<div v-bind:class="classObj">ssssss</div>-->
-        <div class='red' v-bind:class="[classB]">ssssss</div>
+        <!--<div class='red' v-bind:class="[classB]">ssssss</div>-->
+        <!--<div class='red' v-bind:style="styleObj">ssssss</div>-->
+        <div class='red' v-bind:style="[styleA,styleB]">ssssss</div>
+
     </div>
     <script src="vue.js"></script>
     <script>
@@ -27,6 +30,16 @@
         var vm = new Vue({
             el:'#app',
             data:{
+                styleA:{
+                    color:'#fff'
+                },
+                styleB:{
+                    color:'#fff'
+                },
+                styleObj:{
+                    color:'#fff',
+                },
+                colorStye:'#fff',
                 isRed:true,
                 isFont:true,
                 classObj:{

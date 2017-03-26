@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .show{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="fn">click</button>
+    <div class="show" :class="{hide:isHide}"></div>
+</div>
+<script src="vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            isHide:false
+        },
+        methods:{
+            fn:function(){
+                this.isHide = !this.isHide;
+            }
+        }
+    });
+
+
+
+
+
+</script>
+</body>
+</html>
