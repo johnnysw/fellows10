@@ -6,20 +6,39 @@
 </head>
 <body>
 <div id="app">
+
+    <!--<template  v-for="n in 3">-->
+        <!--<img>hhhh1</img>-->
+        <!--<h1>hhhh1</h1>-->
+        <!--<p>hhhh1</p>-->
+    <!--</template>-->
+
     <!--<div v-html="msg"></div>-->
-    <ul>
-        <li v-for="(val,index) in arr">
-            {{index}},{{val}}
-        </li>
-    </ul>
+    <!--<ul>-->
+        <!--&lt;!&ndash;<li v-for="(val,index) in arr">&ndash;&gt;-->
+            <!--&lt;!&ndash;{{index}},{{val}}&ndash;&gt;-->
+        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+        <!--&lt;!&ndash;<li v-for="(val,key,index) in obj">&ndash;&gt;-->
+            <!--&lt;!&ndash;{{val}},{{key}},{{index}}&ndash;&gt;-->
+        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+        <!--<li v-for="n in 10">-->
+            <!--<h1>{{n}}</h1>-->
+        <!--</li>-->
+    <!--</ul>-->
 </div>
+
+
 <script src="vue.js"></script>
 <script>
     var vm = new Vue({
         el:'#app',
         data:{
             msg:'<h1>hhhhhhh</h1>',
-            arr:['a','b','c']
+            arr:['a','b','c'],
+            obj:{
+                name:'zs',
+                age:32
+            }
         }
 
     });
