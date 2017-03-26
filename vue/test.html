@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" v-model="msg"/>
+        {{msg}}
+    </div>
+<script src="vue.js"></script>
+<script>
+
+    new Vue({
+        el:'#app',
+        data:{
+            msg:"aa"
+        }
+    });
+
+
+    //访问器属性
+    var obj = {};
+    Object.defineProperty(obj,'hello',{
+        get:function(){
+            console.log("......");
+        },
+        set:function(val){
+            console.log(val +"......");
+        }
+    })
+
+
+    obj.hello = "aaaaaa";
+
+    obj.hello;
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
