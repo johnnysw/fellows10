@@ -5,12 +5,42 @@
     <title></title>
 </head>
 <body>
-    name:<input type="text">
-    age:<input type="text">
-    <button>add</button>
+    <div id="app">
+        name:<input type="text" v-model="name">
+        age:<input type="text" v-model="age">
+        <button @click="add">add</button>
 
-<ul>
-    <li>aaaa<button>del</button></li>
-</ul>
+        <ul>
+            <li v-for="(val,index) in arr">
+                {{val.name}},{{val.age}}
+                <button @click="del(index)">del</button>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                arr:[],
+                name:'',
+                age:''
+            },
+            methods:{
+                add:function(){
+                    this.arr.push({name:this.name,age:this.age});
+                    this.name='';
+                    this.age = '';
+                },
+                del:function(index){
+                    this.arr.splice(index,1);
+                }
+            }
+
+        });
+
+
+
+    </script>
 </body>
 </html>
