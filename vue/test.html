@@ -7,37 +7,26 @@
 <body>
 
     <div id="app">
-        <input type="text" v-model="msg"/>
-        {{msg}}
+        <!--<input type="text" v-model="msg"/>-->
+        <!--{{msg}}-->
+        <button @click="fn">click</button>
+        当前点击多少次:{{msg}}
     </div>
 <script src="vue.js"></script>
 <script>
 
-    new Vue({
+    var vm = new Vue({
         el:'#app',
         data:{
-            msg:"aa"
-        }
-    });
-
-
-    //访问器属性
-    var obj = {};
-    Object.defineProperty(obj,'hello',{
-        get:function(){
-            console.log("......");
+            msg:0
         },
-        set:function(val){
-            console.log(val +"......");
+        methods:{
+            fn:function(){
+                this.msg++;
+            }
         }
-    })
 
-
-    obj.hello = "aaaaaa";
-
-    obj.hello;
-
-
+    });
 
 
 

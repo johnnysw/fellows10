@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .red{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .font{
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+        <!--<div v-bind:class="classObj">ssssss</div>-->
+        <div class='red' v-bind:class="[classB]">ssssss</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                isRed:true,
+                isFont:true,
+                classObj:{
+                    red:true,
+                    font:true
+                },
+                classB:'font'
+            },
+            methods:{
+
+            }
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>
